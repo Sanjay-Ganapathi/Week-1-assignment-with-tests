@@ -1,4 +1,5 @@
 /*
+import * as e from 'express'
   Implement a class `Calculator` having below methods
     - initialise a result variable in the constructor and keep updating it after every arithmetic operation
     - add: takes a number and adds it to the result
@@ -17,6 +18,45 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(num) {
+    this.result += num;
+  }
+  subtract(num) {
+    this.result -= num;
+  }
+  multiply(num) {
+    this.result *= num;
+  }
+  divide(num) {
+    if (num === 0) throw new Error();
+    this.result /= num;
+  }
+  clear() {
+    this.result = 0;
+  }
+  getResult() {
+    return this.result;
+  }
+
+  calculate(str) {
+    const strClean = str.replace(" ", "");
+
+    let res = eval(strClean);
+    if (typeof res === "number") {
+      if (res === Infinity) {
+        throw new Error();
+      }
+      this.result = res;
+      this.getResult();
+    } else {
+      throw new Error();
+    }
+  }
+}
 
 module.exports = Calculator;
