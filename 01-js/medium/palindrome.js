@@ -6,8 +6,13 @@
   - `npm run test-palindrome`
 */
 
+function alphanum(str) {
+  return str.replace(/[^\w]/g, "").toLowerCase();
+}
+
 function isPalindrome(str) {
-  return true;
+  str = alphanum(str);
+  return str.toLowerCase() === str.toLowerCase().split("").reverse().join("");
 }
 
 module.exports = isPalindrome;
