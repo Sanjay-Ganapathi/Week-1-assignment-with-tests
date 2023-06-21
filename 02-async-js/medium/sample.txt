@@ -1,0 +1,2 @@
+This      is     a file which       contains lots of                spaces 
+Inorder           to          correct this file           we have       to      remove the spaces
